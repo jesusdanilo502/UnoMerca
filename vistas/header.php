@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="../public/img/favicon.ico">
 
   </head>
-  <body class="hold-transition skin-red-light sidebar-mini">
+  <body class="hold-transition skin-purple-light sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
