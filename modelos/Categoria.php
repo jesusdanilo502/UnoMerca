@@ -39,12 +39,12 @@
     // Implementar un mètodo para mostrar los datos de un registro a modificar
     public function mostrar($idcategoria)
     {
-      $sql="SELECT * FROM categoria WHERE idcategoria='$idcategoria'"
+      $sql="SELECT * FROM categoria WHERE idcategoria='$idcategoria'";
       return ejecutaConsultaSimpleFila($sql);
     }
     public function listar()
     {
-      $sql= ""SELECT * FROM categoria;
+      $sql= "SELECT * FROM categoria";
       return ejecutarConsulta($sql);
     }
   }
