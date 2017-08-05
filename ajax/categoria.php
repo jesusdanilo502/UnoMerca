@@ -41,7 +41,7 @@
          echo json_encode ($rspta);
        break;
 
-       case 'listar'
+       case 'listar':
        $rspta=$categoriaone->listar();
        //vamos a declarar un array
        $data= array();
@@ -49,7 +49,7 @@
        // recorro mi array para almacenar en los indices cada uno de los campos de la db
        while ($reg=$rspta->fetch_object()){
          $data[]=array(
-           "0"=>$reg->idcategoria
+           "0"=>$reg->idcategoria,
            "1"=>$reg->nombre,
            "2"=>$reg->descripcion,
            "3"=>$reg->condicion
@@ -62,6 +62,5 @@
          "aaData"=>$data);
          echo json_encode($result);
       break;
-
    }
  ?>
