@@ -14,5 +14,5 @@
   define("DB_ENCODE","utf8");
 
   //DEFINIMOS UNA CONSTANTE COMO NOMBRE DEL PROYECTO
-  define("PRO_NOMBRE","ITVentas");
+  define("PRO_NOMBRE","UnoMerca");
  ?>

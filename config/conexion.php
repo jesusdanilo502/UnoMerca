@@ -9,7 +9,7 @@
 
   if(mysqli_connect_errno())
   {
-    printf("Fallo la conexiòn a la base de datos: %s\N",mysql_connect_errno());
+    printf("Fallo la conexiòn a la base de datos: %s\N",mysqli_connect_error());
     exit();
   }
    if(!function_exists('ejecutarConsulta'))
@@ -36,7 +36,7 @@
      function limpiarCadena($str)
      {
        global $conexion;
-       $str= mysql_real_escape_string($conexion,trim($str));
+       $str= mysqli_real_escape_string($conexion,trim($str));
        return htmlspecialchars($str);
      }
    }
