@@ -18,16 +18,18 @@
   function mostrarform(flag)
   {
     limpiar();
-    if (flag)
-    {
-      $("#listadoregistros").hide();
-      $("#listadoregistros").show();
-      $("#btnguardar").prop("disable",false);
-    }
-    else {
-      $("#listadoregistros").show();
-      $("#listadoregistros").hide();
-    }
+    // con este if evaluao y muestro o oculto el fomulario de categorias
+      //si voy a crear una nueva categoria oculto el listdo sino muestro el listado.
+      if (flag) {
+          $("#listadoregistros").hide();
+          $("#formularioregistros").show();
+          $("#btnguardar").prop("disabled", false);
+      }
+      else {
+          $("#listadoregistros").show();
+          $("#formularioregistros").hide();
+
+      }
   }
   // Función cancelar formulario
   function cancelarform()
@@ -38,10 +40,11 @@
   //FUnción listar
   function listar()
   {
-    tabla=$('tblistado').dataTable(
+    tabla=$('#tblistado').dataTable(
+        {
       "aProcessing": true, // Activamos el procesamiento de DATATABLES"
       "aServerSide": true,//Paginación y filtrado realizado por el servidor,
-      dom .'Bfrtip', // Definimos los elementos del control tabla
+      dom:'Bfrtip', // Definimos los elementos del control tabla
       buttons: [
                  'copyHtml5',
                  'excelHtml5',
@@ -49,7 +52,7 @@
                  'pdf'
               ],
     "ajax":
-    {
+       {
        url: '../ajax/categoria.php?op=listar',
        type: "get",
        dataType: "json",
@@ -57,7 +60,7 @@
          console.log(e.responseText);
        }
     },
-    "bDestroy": true;
+    "bDestroy": true,
     "iDisplayLength": 5, // paginación
     "order":[[0, "desc"]] // Ordenar (Columna,orden)
   }).DataTable();

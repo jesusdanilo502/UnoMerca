@@ -21,6 +21,8 @@
 
     <!-- DATATABLES -->
     <link rel="stylesheet" type="text/css" href="../public/datatables/jquery.datatables.min.css">
+      <link rel="stylesheet" type="text/css" href="../public/datatables/buttons.datatables.min.css">
+      <link rel="stylesheet" type="text/css" href="../public/datatables/responsive.dataTables.min.css">
 
   </head>
   <body class="hold-transition skin-purple-light sidebar-mini">
