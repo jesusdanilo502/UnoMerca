@@ -48,7 +48,7 @@ require 'header.php'
                               </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <label>Descripcion:</label>
-                                <input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="200" placeholder="Descripcion">
+                                <input type="text" class="form-control" name="descripcion" id="descripcion" maxlength="256" placeholder="Descripcion">
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>Guardar </button>

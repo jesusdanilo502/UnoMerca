@@ -73,25 +73,28 @@
   }).DataTable();
   }
   // Función para guardar y editar
+
+
   function guardaryeditar(e)
   {
-   e.preventDefault(); // No se activara la acción predeterminada del evento segun la librearia ajax
+      e.preventDefault(); //No se activará la acción predeterminada del evento
       $("#btnGuardar").prop("disabled",true);
-      var formData= new FormData($("#formulario")[0]);
+      var formData = new FormData($("#formulario")[0]);
 
       $.ajax({
           url: "../ajax/categoria.php?op=guardaryeditar",
           type: "POST",
           data: formData,
           contentType: false,
-          processData: False,
+          processData: false,
 
-          success: function (datos)
+          success: function(datos)
           {
-           alert(datos);
-           mostrarform(false);
-           tabla.ajax.reload();
+              bootbox.alert(datos);
+              mostrarform(false);
+              tabla.ajax.reload();
           }
+
       });
       limpiar();
   }
