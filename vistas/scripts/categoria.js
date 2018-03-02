@@ -2,83 +2,83 @@
   // funciòn que se ejecuta al inicio
 
   function init(){
-    mostrarform(false);
-    listar();
+      mostrarform(false);
+      listar();
 
-    //ejecuto boton guardar para cuando de click me llame la función guardaryditar del formulario
-      //y se ejecute el proceso
-      $("#formulario").on("submit",function (e)
+      $("#formulario").on("submit",function(e)
       {
           guardaryeditar(e);
       })
   }
 
-  // funciòn limpiar
-   function limpiar()
-   {
-   $("#idcategoria").val("");
-   $("#nombre").val("");
-   $("#descripcion").val("");
-   }
-  // Función mostrar formulario
+  //Función limpiar
+  function limpiar()
+  {
+      $("#idcategoria").val("");
+      $("#nombre").val("");
+      $("#descripcion").val("");
+  }
 
+  //Función mostrar formulario
   function mostrarform(flag)
   {
-    limpiar();
-    // con este if evaluao y muestro o oculto el fomulario de categorias
-      //si voy a crear una nueva categoria oculto el listdo sino muestro el listado.
-      if (flag) {
+      limpiar();
+      if (flag)
+      {
           $("#listadoregistros").hide();
           $("#formularioregistros").show();
-          $("#btnguardar").prop("disabled", false);
+          $("#btnGuardar").prop("disabled",false);
+          $("#btnagregar").hide();
       }
-      else {
+      else
+      {
           $("#listadoregistros").show();
           $("#formularioregistros").hide();
-
+          $("#btnagregar").show();
       }
   }
-  // Función cancelar formulario
+
+  //Función cancelarform
   function cancelarform()
   {
-    limpiar();
-    mostrarform(false);
+      limpiar();
+      mostrarform(false);
   }
-  //FUnción listar
+
+  //Función Listar
   function listar()
   {
-    tabla=$('#tblistado').dataTable(
-        {
-      "aProcessing": true, // Activamos el procesamiento de DATATABLES"
-      "aServerSide": true,//Paginación y filtrado realizado por el servidor,
-      dom:'Bfrtip', // Definimos los elementos del control tabla
-      buttons: [
-                 'copyHtml5',
-                 'excelHtml5',
-                 'csvHtml5',
-                 'pdf'
+      tabla=$('#tblistado').dataTable(
+          {
+              "aProcessing": true,//Activamos el procesamiento del datatables
+              "aServerSide": true,//Paginación y filtrado realizados por el servidor
+              dom: 'Bfrtip',//Definimos los elementos del control de tabla
+              buttons: [
+                  'copyHtml5',
+                  'excelHtml5',
+                  'csvHtml5',
+                  'pdf'
               ],
-    "ajax":
-       {
-       url: '../ajax/categoria.php?op=listar',
-       type: "get",
-       dataType: "json",
-       error: function(e){
-         console.log(e.responseText);
-       }
-    },
-    "bDestroy": true,
-    "iDisplayLength": 5, // paginación
-    "order":[[0, "desc"]] // Ordenar (Columna,orden)
-  }).DataTable();
+              "ajax":
+                  {
+                      url: '../ajax/categoria.php?op=listar',
+                      type : "get",
+                      dataType : "json",
+                      error: function(e){
+                          console.log(e.responseText);
+                      }
+                  },
+              "bDestroy": true,
+              "iDisplayLength": 5,//Paginación
+              "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+          }).DataTable();
   }
-  // Función para guardar y editar
-
+  //Función para guardar o editar
 
   function guardaryeditar(e)
   {
       e.preventDefault(); //No se activará la acción predeterminada del evento
-      $("#btnGuardar").prop("disabled",true);
+      $("#btnGuardar").prop("enable",true);
       var formData = new FormData($("#formulario")[0]);
 
       $.ajax({
@@ -98,4 +98,48 @@
       });
       limpiar();
   }
+
+  function mostrar(idcategoria)
+  {
+      $.post("../ajax/categoria.php?op=mostrar",{idcategoria : idcategoria}, function(data, status)
+      {
+          data = JSON.parse(data);
+          mostrarform(true);
+
+          $("#nombre").val(data.nombre);
+          $("#descripcion").val(data.descripcion);
+          $("#idcategoria").val(data.idcategoria);
+
+      })
+  }
+
+  //Función para desactivar registros
+  function desactivar(idcategoria)
+  {
+      bootbox.confirm("¿Está Seguro de desactivar la Categoría?", function(result){
+          if(result)
+          {
+              $.post("../ajax/categoria.php?op=desactivar", {idcategoria : idcategoria}, function(e){
+                  bootbox.alert(e);
+                  tabla.ajax.reload();
+              });
+          }
+      })
+  }
+
+  //Función para activar registros
+  function activar(idcategoria)
+  {
+      bootbox.confirm("¿Está Seguro de activar la Categoría?", function(result){
+          if(result)
+          {
+              $.post("../ajax/categoria.php?op=activar", {idcategoria : idcategoria}, function(e){
+                  bootbox.alert(e);
+                  tabla.ajax.reload();
+              });
+          }
+      })
+  }
+
+
   init();

@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="DebugConAplicacion" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Apache On XAMPP" start_url="/UnoMerca">
+    <method />
+  </configuration>
+</component>
