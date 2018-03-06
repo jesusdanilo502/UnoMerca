@@ -104,6 +104,7 @@
       $.post("../ajax/categoria.php?op=mostrar",{idcategoria : idcategoria}, function(data, status)
       {
           data = JSON.parse(data);
+
           mostrarform(true);
 
           $("#nombre").val(data.nombre);

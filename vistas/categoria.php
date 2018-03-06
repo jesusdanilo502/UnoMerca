@@ -20,20 +20,19 @@ require 'header.php'
                         <div class="panel-body table-responsive" id="listadoregistros">
                             <table id="tblistado" class="table table-striped table-bordered table-condensed table-hover">
                                 <thead>
-                                <th>Opcion</th>
+                                <th>Opciones</th>
                                 <th>Nombre</th>
-                                <th>Descripcion</th>
+                                <th>Descripción</th>
                                 <th>Estado</th>
                                 </thead>
                                 <tbody>
                                 </tbody>
-                                 <tfoot>
-                                 <th>Opcion</th>
-                                 <th>Nombre</th>
-                                 <th>Descripcion</th>
-                                 <th>Estado</th>
-                                 </tfoot>
-
+                                <tfoot>
+                                <th>Opciones</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                                </tfoot>
                             </table>
                         </div>
                         <div class="panel-body" style="height: 400px;" id="formularioregistros">
@@ -51,7 +50,7 @@ require 'header.php'
                                     <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
 
                                     <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-                        </div>
+                                </div>
                             </form>
                         </div>
                         <!--Fin centro -->

@@ -19,10 +19,10 @@ class Categoria
 
     //Implementamos un método para editar registros
     public function editar($idcategoria,$nombre,$descripcion)
-{
-    $sql="UPDATE categoria SET nombre='$nombre',descripcion='$descripcion' WHERE idcategoria='$idcategoria'";
-    return ejecutarConsulta($sql);
-}
+    {
+        $sql="UPDATE categoria SET nombre='$nombre',descripcion='$descripcion' WHERE idcategoria='$idcategoria'";
+        return ejecutarConsulta($sql);
+    }
 
     //Implementamos un método para desactivar categorías
     public function desactivar($idcategoria)
@@ -59,4 +59,3 @@ class Categoria
 }
 }
 
-?>
