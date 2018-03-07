@@ -27,7 +27,7 @@ class Articulo
     //Implementamos un método para desactivar registros
     public function desactivar($idarticulo)
     {
-        $sql="UPDATE categoria SET condicion='0' WHERE idarticulo='$idarticulo'";
+        $sql="UPDATE articulo SET condicion='0' WHERE idarticulo='$idarticulo'";
         return ejecutarConsulta($sql);
     }
 
@@ -56,7 +56,7 @@ class Articulo
     //Implementar un método para listar los registros y mostrar en el select
     public function select()
     {
-        $sql="SELECT * FROM categoria where condicion=1";
+        $sql="SELECT * FROM articulo where condicion=1";
         return ejecutarConsulta($sql);
     }
 }
